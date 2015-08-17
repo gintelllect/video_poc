@@ -1,0 +1,25 @@
+.container {
+    margin:0 auto;
+    background:#c2ccd1;
+    height: 800px;
+}
+.col1{
+    float:left;
+    width:1100px;
+    padding: 10px;
+}
+.col2{
+    overflow-y: auto;
+    float:right;
+    width:775px;
+    padding: 10px;
+}
+.canvasContainer {
+    background-color: #ffcaca;
+    padding: 5px;
+}
+
+.canvas {
+    width: 270px;
+    height: 180px;
+}
