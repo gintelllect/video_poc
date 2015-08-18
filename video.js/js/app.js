@@ -22,4 +22,5 @@
     height:    720 / 4
   });
   player.clip();
+  player.controlBar.progressControl.show();
 }());

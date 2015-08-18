@@ -8,10 +8,9 @@
   function capture(video, options) {
     var button    = document.querySelector(options.button);
     var container = document.querySelector(options.container);
+    var canvas = document.getElementById("canvas");
 
     button.addEventListener('click', function() {
-      var canvas = document.createElement('canvas');
-      canvas.className = (options.addtionalClass) ? 'canvas' : 'canvas ' + options.addtionalClass;
 
       var context = canvas.getContext('2d');
       var width  = options.width  || 50;
@@ -19,6 +18,7 @@
 
       draw(video, context, width, height);
       container.appendChild(canvas);
+      timeupdate(video);
     });
   };
 
@@ -26,6 +26,12 @@
     if(v.paused || v.ended) return false;
     console.log(w,h);
     c.drawImage(v,0,0,w,h);
+  }
+
+  function timeupdate(video){
+    var whereYouAt = video.currentTime;
+    var canvas = document.getElementById("canvas");
+    canvas.style.left = whereYouAt * 20 +'px';
   }
 
   videojs.plugin('capture', function(options) {
