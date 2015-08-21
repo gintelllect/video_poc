@@ -5,39 +5,48 @@
         <title>Video</title>
 
         <!-- <link href="bower_components/normalize.css/normalize.css" rel="stylesheet"> -->
-        <link href="http://vjs.zencdn.net/4.12.12/video-js.css" rel="stylesheet">
+<!--        <link href="http://vjs.zencdn.net/4.2/video-js.css" rel="stylesheet"> -->
+	<link href="http://vjs.zencdn.net/4.12.12/video-js.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
+	<link href="css/rangeslider.min.css" rel="stylesheet">
+<!-- 	<link href="css/demo.css" rel="stylesheet"> -->
     </head>
     <body>
         <div class="container">
             <div class="col1">
-                <video id="video1"
-                       class="video-js vjs-default-skin"
-                       controls preload="auto" width="1080" height="720">
-
-                    <source src="http://vjs.zencdn.net/v/oceans.mp4" type='video/mp4' />
-
-                    <p class="vjs-no-js">
-                        To view this video please enable JavaScript, and consider upgrading to a web browser that
-                        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-                    </p>
-                </video>
+                 <video id="video1" controls preload="none" class="video-js vjs-default-skin" width="640" height="264">
+	      <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+	      <source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
+	      <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
+	      <track kind="captions" src="example-captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
+	     
+	</video>
             </div>
+<div class="vjs-waveformdiv">
+<div class="vjs-waveform"></div>
+</div>
             <div class="col2">
                 <div>
                     <button class="captureButton">Capture</button>
                     <button class="captureButton">Clip</button>
+		    <button class="segmentButton">Segment</button>
+		    <br>	
+		    Start: <input type="text" name="start" id="start">
+		    End: <input type="text" name="end" id="end">
                 </div>
-		 <div><canvas id="canvas"></canvas></div>
+
                 <div class="canvasContainer"></div>
             </div>
         </div>
-
-        <script src="http://vjs.zencdn.net/4.12.12/video.js"></script>
-        <script src="js/wavesurfer.min.js"></script>
+	
+        <script src="js/video.js"></script>
+        <script src="js/wavesurfer.mins.js"></script>
         <script src="js/videojs.wavesurfer.js"></script>
+	<!--<script src="js/rangeslider.js"></script>-->
         <script src="js/plugins/capture.js"></script>
         <script src="js/plugins/clip.js"></script>
+	<script src="js/plugins/Segment.js"></script>
+	<script src="js/plugins/keyStroke.js"></script>
         <script src="js/app.js"></script>
     </body>
 </html>

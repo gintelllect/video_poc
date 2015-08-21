@@ -19,14 +19,9 @@
     padding: 5px;
 }
 
-#canvas{
-    position: absolute;
-    top: 625px;
-    height: 80px;
-    width: 150px;
-    left: 19px;
-    display: block;
-    z-index: 2;
+.canvas {
+    width: 270px;
+    height: 180px;
 }
 
 .segmentButton{
@@ -39,5 +34,5 @@
 	width:264px;
 	float:left;
 	margin-left: auto!important;
-	background-color: red;
+	background-color: 'red';
 }

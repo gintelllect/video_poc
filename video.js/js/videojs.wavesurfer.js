@@ -69,7 +69,7 @@
             if (this.player().options().controls)
             {
             	// progress control isn't used by this plugin
-                this.player().controlBar.progressControl.hide();
+                this.player().controlBar.progressControl.show();
 
                 // prevent controlbar fadeout
                 this.player().on('userinactive', function(event)
@@ -601,7 +601,11 @@
         });
 
         // add waveform to dom
-        player.el().appendChild(player.waveform.el());
+	/*var elements = player.el();
+	var videowaveformEl = player.waveform.el();*/
+	var canvasElement = document.getElementsByClassName("vjs-waveform");
+	canvasElement[0].appendChild(player.waveform.el());
+       // player.el().appendChild(player.waveform.el());
     };
 
     // register the plugin
