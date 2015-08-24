@@ -1,22 +1,29 @@
 .container {
-    margin:0 auto;
+    margin:10px;
     background:#c2ccd1;
-    height: 800px;
+    height: auto;
+	border: 1px solid black;
 }
-.col1{
+.videoPlayer{
     float:left;
     width:1100px;
     padding: 10px;
 }
-.col2{
-    overflow-y: auto;
-    float:right;
-    width:775px;
+.segment_controller {
+	border: 1px solid black;
+    margin-left:55px;
     padding: 10px;
+	float: left;
 }
+
+.video_segment {
+	border: 1px solid black;
+    margin-left:55px;
+    padding: 10px;
+	float: left;
+}
+
 .canvasContainer {
-    background-color: #ffcaca;
-    padding: 5px;
 }
 
 #canvas{
@@ -29,15 +36,9 @@
     z-index: 2;
 }
 
-.segmentButton{
-	background:#c2ccd1;
-	width: 110px;
-	height:35px;
-}
-.vjs-waveform{
-	height:30px;
-	width:264px;
+.vjs-waveform {
+	height:264px;
+	width:640px;
 	float:left;
-	margin-left: auto!important;
-	background-color: red;
+	margin-left:5px;
 }

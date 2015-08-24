@@ -1,3 +1,6 @@
+/*! videojs-wavesurfer v0.9.6
+* https://github.com/collab-project/videojs-wavesurfer
+* Copyright (c) 2015 */
 (function(root, factory)
 {
     if (typeof define === 'function' && define.amd)
@@ -69,7 +72,7 @@
             if (this.player().options().controls)
             {
             	// progress control isn't used by this plugin
-                this.player().controlBar.progressControl.show();
+                this.player().controlBar.progressControl.hide();
 
                 // prevent controlbar fadeout
                 this.player().on('userinactive', function(event)
@@ -601,11 +604,7 @@
         });
 
         // add waveform to dom
-	/*var elements = player.el();
-	var videowaveformEl = player.waveform.el();*/
-	var canvasElement = document.getElementsByClassName("vjs-waveform");
-	canvasElement[0].appendChild(player.waveform.el());
-       // player.el().appendChild(player.waveform.el());
+        document.getElementById("vjs-waveform").appendChild(player.waveform.el());
     };
 
     // register the plugin

@@ -1,7 +1,15 @@
+/*
+ * Video.js Hotkeys
+ * https://github.com/ctd1500/videojs-hotkeys
+ *
+ * Copyright (c) 2015 Chris Dougherty
+ * Licensed under the Apache-2.0 license.
+ */
+
 (function(window, videojs) {
   'use strict';
 
-  window['videojs_keyStroke'] = { version: "0.2.6" };
+  window['videojs_hotkeys'] = { version: "0.2.6" };
 
   // Copies properties from one or more objects onto an original.
   var extend = function(obj /*, arg1, arg2, ... */ ) {
@@ -17,7 +25,7 @@
     return obj;
   };
 
-  var keyStroke = function(options) {
+  var hotkeys = function(options) {
     var player = this;
     var def_options = {
       volumeStep: 0.1,
@@ -43,7 +51,7 @@
     }
 
     player.on('play', function() {
-      // Fix allowing the YouTube plugin to have keystroke support.
+      // Fix allowing the YouTube plugin to have hotkey support.
 
       var ifblocker = player.el().querySelector('.iframeblocker');
       if (ifblocker && ifblocker.style.display === '') {
@@ -55,7 +63,7 @@
     var keyDown = function keyDown(event) {
 
       var ewhich = event.which, curTime;
-      // When controls are disabled, keystroke will be disabled as well
+      // When controls are disabled, hotkeys will be disabled as well
       if (player.controls()) {
 
         // Don't catch keys if any control buttons are focused, unless in jogStyle mode
@@ -157,7 +165,7 @@
 
     var doubleClick = function doubleClick(event) {
 
-      // When controls are disabled, keystroke will be disabled as well
+      // When controls are disabled, hotkeys will be disabled as well
       if (player.controls()) {
 
         // Don't catch clicks if any control buttons are focused
@@ -183,7 +191,6 @@
     return this;
   };
 
-   videojs.plugin('keyStroke', keyStroke);
-
+  videojs.plugin('hotkeys', hotkeys);
 
 })(window, window.videojs);

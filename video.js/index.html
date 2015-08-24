@@ -1,52 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="video-segmentation">
     <head>
         <meta charset="UTF-8">
         <title>Video</title>
-
-        <!-- <link href="bower_components/normalize.css/normalize.css" rel="stylesheet"> -->
-<!--        <link href="http://vjs.zencdn.net/4.2/video-js.css" rel="stylesheet"> -->
-	<link href="http://vjs.zencdn.net/4.12.12/video-js.css" rel="stylesheet">
+        <link href="http://vjs.zencdn.net/4.12.12/video-js.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-	<link href="css/rangeslider.min.css" rel="stylesheet">
-<!-- 	<link href="css/demo.css" rel="stylesheet"> -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/rangeslider.min.css" rel="stylesheet">
     </head>
-    <body>
+    <body ng-controller="videoPlayerController" ng-keyup="keyPressEvent()">
         <div class="container">
-            <div class="col1">
-                 <video id="video1" controls preload="none" class="video-js vjs-default-skin" width="640" height="264">
-	      <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
-	      <source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
-	      <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
-	      <track kind="captions" src="example-captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
-	     
-	</video>
+            <div class="videoPlayer">
+                <video id="video_source" controls preload="none"
+                    class="video-js vjs-default-skin" width="640" height="264">
+                    <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+                    <source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
+                    <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
+                    <track kind="captions" src="example-captions.vtt" srclang="en" label="English"></track>
+                </video>
             </div>
-<div class="vjs-waveformdiv">
-<div class="vjs-waveform"></div>
-</div>
-            <div class="col2">
-                <div>
-                    <button class="captureButton">Capture</button>
-                    <button class="captureButton">Clip</button>
-		    <button class="segmentButton">Segment</button>
-		    <br>	
-		    Start: <input type="text" name="start" id="start">
-		    End: <input type="text" name="end" id="end">
-                </div>
-
-                <div class="canvasContainer"></div>
-            </div>
+            <div class="vjs-waveform" id="vjs-waveform"></div>
         </div>
-	
+        <div class="segment_controller">
+            <button class="captureButton" ng-click="startSegment()">Segment Start</button>
+            <button class="captureButton" ng-click="endSegment()">Segment End</button>
+        </div>
+        <div class="video_segment">TODO: This DIV will have the created segments</div>
         <script src="js/video.js"></script>
         <script src="js/wavesurfer.mins.js"></script>
         <script src="js/videojs.wavesurfer.js"></script>
-	<!--<script src="js/rangeslider.js"></script>-->
-        <script src="js/plugins/capture.js"></script>
-        <script src="js/plugins/clip.js"></script>
-	<script src="js/plugins/Segment.js"></script>
-	<script src="js/plugins/keyStroke.js"></script>
-        <script src="js/app.js"></script>
+        <script src="js/angular.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/videojs.hotkeys.js"></script>
+        <script src="js/videojs.hotkeys.js"></script>
     </body>
 </html>
